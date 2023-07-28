@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+  .box-shadow-offset-black {
+    box-shadow: 15px 15px theme('colors.black');
+  }
+
+  .box-shadow-offset-black1 {
+    box-shadow: 8px 8px theme('colors.black');
+  }
+}

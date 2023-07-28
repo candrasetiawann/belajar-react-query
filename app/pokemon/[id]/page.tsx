@@ -19,15 +19,17 @@ const page = async ({ params }: { params: { id: number } }) => {
   });
 
   return (
-    <div className="mx-auto px-20 md:px-32 ">
+    <div className="mx-auto mt-10 px-10 md:px-72 ">
       <Hydrate state={dehydratedState}>
         <Link
-          className="bg-orange-600 text-white py-2 px-4 rounded-sm "
+          className="text-center text-yellow-500 font-bold bg-blue-900 py-2 px-4 rounded-sm "
           href={"/"}
         >
           Back
         </Link>
+        {/* <div className="flex justify-center "> */}
         <PokemonDetails id={id} />
+        {/* </div> */}
       </Hydrate>
     </div>
   );

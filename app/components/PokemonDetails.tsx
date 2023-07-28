@@ -13,7 +13,7 @@ const PokemonDetails = ({ id }: Props) => {
     queryFn: () => getPokemonById(id),
   });
   return (
-    <div className="mx-auto ">
+    <div className="mx-auto mt-5">
       <PokemonCard
         name={data?.name}
         id={data?.id}
