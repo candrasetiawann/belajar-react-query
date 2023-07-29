@@ -14,6 +14,9 @@ const PokemonCardInfo = ({ id, name, pokemonImage }: Props) => {
     queryKey: ["pokemon"],
     queryFn: () => getPokemonById(id),
   });
+
+  const types = data?.types?.map((type: any) => type.type.name).join(", ");
+
   return (
     <div className="">
       {pokemonImage && (
@@ -25,10 +28,7 @@ const PokemonCardInfo = ({ id, name, pokemonImage }: Props) => {
         />
       )}
       <p>Name : {name}</p>
-      <p>Type : </p>
-      {data?.types?.map((type: any) => (
-        <li key={type.type.name}> Type : {type.type.name}</li>
-      ))}
+      {types && <p>Types : {types}</p>}
     </div>
   );
 };
