@@ -47,9 +47,12 @@ const getPokemonImage = (url: string) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 };
 
+//get pokemon by id
 export const getPokemonById = async (id: number) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   const response = await fetch(url).then((res) => res.json());
+  // const types = response.types.map((typed: any) => typed.type.name);
+  // console.log(types);
 
   return { ...response, id, pokemonImage: getPokemonImage(url) };
 };

@@ -1,5 +1,8 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getPokemonById } from "../store";
 import Image from "next/image";
+import PokemonCardInfo from "./PokemonCardInfo";
 
 type Props = {
   name: string;

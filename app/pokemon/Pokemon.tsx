@@ -27,13 +27,15 @@ const PokemonComponent = () => {
         />
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-10 md:px-48">
-        {data?.map(({ name, id, pokemonImage }) => (
-          <ul key={id} className="bg-black rounded-sm ">
-            <Link href={`/pokemon/${id}`}>
-              <PokemonCard name={name} id={id} pokemonImage={pokemonImage} />
-            </Link>
-          </ul>
-        ))}
+        {data &&
+          Array.isArray(data) &&
+          data.map(({ name, id, pokemonImage }) => (
+            <ul key={id} className="bg-black rounded-sm ">
+              <Link href={`/pokemon/${id}`}>
+                <PokemonCard name={name} id={id} pokemonImage={pokemonImage} />
+              </Link>
+            </ul>
+          ))}
       </div>
     </div>
   );

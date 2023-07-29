@@ -16,9 +16,16 @@ const PokemonCardInfo = ({ id, name, pokemonImage }: Props) => {
   });
 
   const types = data?.types?.map((type: any) => type.type.name).join(", ");
+  const abilities = data?.abilities
+    ?.map((ability: any) => ability.ability.name)
+    .join(", ");
+  const availableMoves = data?.moves
+    ?.map((move: any) => move.move.name)
+    .join(", ");
 
   return (
-    <div className="">
+    <div className="bg-blue-900 rounded-sm py-5 px-5 box-shadow-offset-black">
+      <h1 className="font-bold text-white">Information</h1>
       {pokemonImage && (
         <Image
           src={pokemonImage}
@@ -27,8 +34,24 @@ const PokemonCardInfo = ({ id, name, pokemonImage }: Props) => {
           height={200}
         />
       )}
-      <p>Name : {name}</p>
-      {types && <p>Types : {types}</p>}
+      <p className="text-white">
+        <span className="font-bold text-white">Name : </span>
+        {name}
+      </p>
+      {types && (
+        <p className="text-white">
+          <span className="font-bold text-white">Types :</span> {types}
+        </p>
+      )}
+      {abilities && (
+        <p className="text-white">
+          <span className="font-bold text-white">Abilities :</span> {abilities}
+        </p>
+      )}
+      <p className="font-bold text-white">Available Moves </p>
+      <p className="text-white">
+        {availableMoves && <span className="text-white">{availableMoves}</span>}
+      </p>
     </div>
   );
 };
